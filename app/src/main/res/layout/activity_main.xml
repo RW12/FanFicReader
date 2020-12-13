@@ -3,18 +3,44 @@
     xmlns:tools="http://schemas.android.com/tools"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
     android:orientation="vertical"
-    tools:context=".MainActivity"
-    android:gravity="center">
+    tools:context=".MainActivity">
+
+<!-- how to put space between 'FanficReader' and buttons?
+use ToolbarMenu: https://stackoverflow.com/questions/35648913/how-to-set-menu-to-toolbar-in-android
+also, hardcoding size of things OK?-->
+    <androidx.appcompat.widget.Toolbar
+        android:id="@+id/mainToolbar"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:background="#2196F3">
+        <TextView
+            android:layout_width="150dp"
+            android:layout_height="match_parent"
+            android:text="@string/app_name" />
+
+<!-- icons for buttons:
+https://material.io/resources/icons/?icon=settings&style=baseline
+R.drawable.settings_24px-->
+        <Button
+            android:id="@+id/mainActivityProfileButton"
+            android:layout_width="50dp"
+            android:layout_height="35dp"
+            android:text="Profile"
+            android:textSize="8dp" />
+
+        <Button
+            android:id="@+id/mainActivitySettingsButton"
+            android:layout_width="50dp"
+            android:layout_height="35dp"
+            android:text="Settings"
+            android:textSize="8dp" />
+    </androidx.appcompat.widget.Toolbar>
 
     <FrameLayout
         android:id="@+id/activityMainContainer"
         android:layout_width="match_parent"
-        android:layout_height="wrap_content"/>
-    <Button
-        android:id="@+id/activityMainButton"
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        android:text="Button"/>
+        android:layout_height="match_parent"/>
 
 </LinearLayout>
