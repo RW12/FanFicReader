@@ -10,7 +10,7 @@
 <!-- listed stories go below; default most recent stories? w/e AO3 gives?
 recyclerview replaces framelayout-->
     <androidx.recyclerview.widget.RecyclerView
-        android:id="@+id/listedStoryContainer"
+        android:id="@+id/listedStoryRecyclerView"
         android:layout_width="match_parent"
         android:layout_height="match_parent"/>
 

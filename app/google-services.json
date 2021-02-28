@@ -1,0 +1,39 @@
+{
+  "project_info": {
+    "project_number": "792603617342",
+    "project_id": "fanficreader-e7866",
+    "storage_bucket": "fanficreader-e7866.appspot.com"
+  },
+  "client": [
+    {
+      "client_info": {
+        "mobilesdk_app_id": "1:792603617342:android:67fb7fd56e9e53db8fc96f",
+        "android_client_info": {
+          "package_name": "com.example.fanficreader"
+        }
+      },
+      "oauth_client": [
+        {
+          "client_id": "792603617342-1492njkjp2v3kpv9gm6lcminpe1cagts.apps.googleusercontent.com",
+          "client_type": 3
+        }
+      ],
+      "api_key": [
+        {
+          "current_key": "AIzaSyBHoUcqU2XjzufgtzB8lDIXTTRtmGTZSzg"
+        }
+      ],
+      "services": {
+        "appinvite_service": {
+          "other_platform_oauth_client": [
+            {
+              "client_id": "792603617342-1492njkjp2v3kpv9gm6lcminpe1cagts.apps.googleusercontent.com",
+              "client_type": 3
+            }
+          ]
+        }
+      }
+    }
+  ],
+  "configuration_version": "1"
+}

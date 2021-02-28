@@ -1,11 +1,13 @@
-<?xml version="1.0" encoding="utf-8"?><!-- search bar; below container is the place where stories are listed-->
+<?xml version="1.0" encoding="utf-8"?>
+<!-- search bar; below container is the place where stories are listed-->
 <LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
     android:id="@+id/searchBarContainer"
-    android:layout_width="match_parent"
-    android:layout_height="60dp">
-    <!-- BUTTONS NOT ALIGNED TO TOP?
-    MAKE BUTTON HOLLOW CIRCLE:
-    https://stackoverflow.com/questions/9884202/custom-circle-button-->
+    android:layout_width="wrap_content"
+    android:layout_height="wrap_content"
+    android:orientation="horizontal">
+    <!-- use provided searchbar (replaces textviewer and button) widget:
+    https://developer.android.com/guide/topics/search/search-dialog -->
+    <!--
     <Button
         android:id="@+id/commonFiltersButton"
         android:layout_width="50dp"
@@ -16,19 +18,19 @@
         android:id="@+id/searchBar"
         android:layout_width="161dp"
         android:layout_height="match_parent" />
-    <!-- use provided searchbar (replaces textviewer and button) widget:
-    https://developer.android.com/guide/topics/search/search-dialog-->
     <Button
         android:id="@+id/searchBarButton"
-        android:layout_width="77dp"
+        android:layout_width="75dp"
         android:layout_height="50dp"
         android:text="Search"
-        android:textSize="10dp" />
+        android:textSize="10dp"
+        android:background="@color/white"/>
 
     <Button
         android:id="@+id/advFilterButton"
-        android:layout_width="61dp"
+        android:layout_width="75dp"
         android:layout_height="50dp"
+        android:background="@color/white"
         android:text="Adv Filter"
-        android:textSize="10dp" />
+        android:textSize="10dp" />-->
 </LinearLayout>

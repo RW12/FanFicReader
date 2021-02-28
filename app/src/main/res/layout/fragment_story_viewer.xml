@@ -3,12 +3,27 @@
     android:layout_width="match_parent"
     android:layout_height="match_parent"
     android:orientation="vertical"
-    android:gravity="center">
+    android:gravity="center_horizontal">
 
     <TextView
-        android:id="@+id/storyViewerTextbox"
+        android:id="@+id/titleAndAuthor"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        android:text="Story Viewer"/>
+        android:text="Title by Author"/>
+    <TextView
+        android:id="@+id/tags"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:text="Tags relevant to the story"/>
+    <TextView
+        android:id="@+id/characters"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:text="Characters featured in the story."/>
+    <TextView
+        android:id="@+id/summary"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:text="Summary of the story."/>
 
 </LinearLayout>

@@ -1,0 +1,39 @@
+<?xml version="1.0" encoding="utf-8"?>
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    android:layout_width="match_parent"
+    android:layout_height="145dp"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:orientation="vertical"
+    android:background="@drawable/rectangle">
+    <TextView
+        android:id="@+id/storyCardTitleAuthor"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        tools:text="Title by Author"/>
+    <TextView
+        android:id="@+id/storyTags"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        tools:text="Tags or keywords that describe the type of story."/>
+    <TextView
+        android:id="@+id/storyCharacters"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        tools:text="List of characters featured in the story."/>
+    <TextView
+        android:id="@+id/storySummary"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        tools:text="Summary of the story."/>
+    <!--
+    Title/Author on same line in ao3 (i.e. Title by Author);
+    combine both elements into like 'storyCardTitleAuthor'?
+    TO INCLUDE:
+    Warnings, Characters, Tags, Summary;
+    put on the same line/don't divide by category?
+
+    TO CHANGE (if this changes):
+    StoryDetailsData
+    StoryDetailsViewHolder-->
+
+</LinearLayout>
