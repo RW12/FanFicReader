@@ -21,7 +21,9 @@ class MainActivity : AppCompatActivity() {
     }
     //need onStart, onResume, onPause, onStop, onDestroy?
 
-    //set up the toolbar
+    /**
+     * create the actionbar, the bar at the top of the screen that houses the setting/profile button and name of the app
+     */
     private fun createToolbar() {
         setSupportActionBar(findViewById(R.id.mainToolbar))
         supportActionBar?.setTitle(R.string.app_name)
@@ -48,6 +50,11 @@ class MainActivity : AppCompatActivity() {
 
     //create the home screen
     private fun createHomeScreen() {
+        /*TODO below: suggested to use addToBackStack to do the back button business, but an error occurs; also added above onBackPressed method
+        https://stackoverflow.com/questions/20812922/how-to-close-the-current-fragment-by-using-button-like-the-back-button
+        https://developer.android.com/guide/navigation/navigation-custom-back
+        nothing happens after back arrow is pressed (as opposed to the back arrow tabing out of the app as before)
+        */
         supportFragmentManager.beginTransaction().add(R.id.activityMainContainer, HomeScreenFragment(supportFragmentManager)).commit()
         //createSearchBar()
     }

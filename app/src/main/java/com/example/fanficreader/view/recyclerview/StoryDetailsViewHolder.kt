@@ -1,4 +1,4 @@
-package com.example.fanficreader.view.recyclerview
+ package com.example.fanficreader.view.recyclerview
 
 import android.os.Bundle
 import android.view.View
@@ -33,7 +33,7 @@ class StoryDetailsViewHolder(val itemView: View, private val supportFragmentMana
                     putString(SUMMARY_BUNDLE_KEY,storyDataObject.summary)
                 }
                 arguments = dataBundle
-            }).commit()
+            }).addToBackStack(null).commit()
         }
     }
 }
