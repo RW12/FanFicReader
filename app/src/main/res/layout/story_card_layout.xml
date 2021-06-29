@@ -1,39 +1,78 @@
 <?xml version="1.0" encoding="utf-8"?>
-<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
-    android:layout_width="match_parent"
-    android:layout_height="145dp"
+<com.google.android.material.card.MaterialCardView xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
     xmlns:tools="http://schemas.android.com/tools"
-    android:orientation="vertical"
-    android:background="@drawable/rectangle">
-    <TextView
-        android:id="@+id/storyCardTitleAuthor"
-        android:layout_width="match_parent"
-        android:layout_height="wrap_content"
-        tools:text="Title by Author"/>
-    <TextView
-        android:id="@+id/storyTags"
-        android:layout_width="match_parent"
-        android:layout_height="wrap_content"
-        tools:text="Tags or keywords that describe the type of story."/>
-    <TextView
-        android:id="@+id/storyCharacters"
-        android:layout_width="match_parent"
-        android:layout_height="wrap_content"
-        tools:text="List of characters featured in the story."/>
-    <TextView
-        android:id="@+id/storySummary"
-        android:layout_width="match_parent"
-        android:layout_height="wrap_content"
-        tools:text="Summary of the story."/>
-    <!--
-    Title/Author on same line in ao3 (i.e. Title by Author);
-    combine both elements into like 'storyCardTitleAuthor'?
-    TO INCLUDE:
-    Warnings, Characters, Tags, Summary;
-    put on the same line/don't divide by category?
+    android:layout_width="match_parent"
+    android:layout_height="wrap_content"
+    app:cardElevation="@dimen/story_card_elevation"
+    app:cardCornerRadius="@dimen/story_card_corner">
 
-    TO CHANGE (if this changes):
-    StoryDetailsData
-    StoryDetailsViewHolder-->
+    <androidx.constraintlayout.widget.ConstraintLayout
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:padding="@dimen/story_card_padding">
 
-</LinearLayout>
+        <TextView
+            android:id="@+id/storyCardTitleAuthor"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:ellipsize="end"
+            android:maxLines="2"
+            android:textStyle="bold"
+            android:textSize="@dimen/story_title_font"
+            android:textAlignment="center"
+            app:layout_constraintBottom_toTopOf="@id/storyTags"
+            app:layout_constraintLeft_toLeftOf="parent"
+            app:layout_constraintRight_toRightOf="parent"
+            app:layout_constraintTop_toTopOf="parent"
+            tools:text="Title by Author Title by Author Title by Author Title by Author Title by Author Title by Author Title by Author Title by Author Title by Author Title by Author Title by Author Title by Author Title by Author Title by Author Title by Author Title by Author Title by Author Title by Author Title by Author Title by Author Title by Author Title by Author Title by Author Title by Author Title by Author Title by Author Title by Author Title by Author Title by Author Title by Author Title by Author Title by Author " />
+
+        <TextView
+            android:id="@+id/storyTags"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:ellipsize="end"
+            android:maxLines="2"
+            android:textAlignment="center"
+            app:layout_constraintBottom_toTopOf="@id/storyCharacters"
+            app:layout_constraintLeft_toLeftOf="parent"
+            app:layout_constraintRight_toRightOf="parent"
+            app:layout_constraintTop_toBottomOf="@id/storyCardTitleAuthor"
+            tools:text="Tags or keywords that describe the type of story." />
+
+        <TextView
+            android:id="@+id/storyCharacters"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:ellipsize="end"
+            android:maxLines="2"
+            android:textAlignment="center"
+            app:layout_constraintBottom_toTopOf="@id/storySummary"
+            app:layout_constraintLeft_toLeftOf="parent"
+            app:layout_constraintRight_toRightOf="parent"
+            app:layout_constraintTop_toBottomOf="@id/storyTags"
+            tools:text="List of characters featured in the story." />
+
+        <TextView
+            android:id="@+id/storySummary"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:ellipsize="end"
+            android:maxLines="4"
+            app:layout_constraintBottom_toBottomOf="parent"
+            app:layout_constraintLeft_toLeftOf="parent"
+            app:layout_constraintTop_toBottomOf="@id/storyCharacters"
+            tools:text="Summary of the story." />
+        <!--
+        Title/Author on same line in ao3 (i.e. Title by Author);
+        combine both elements into like 'storyCardTitleAuthor'?
+        TO INCLUDE:
+        Warnings, Characters, Tags, Summary;
+        put on the same line/don't divide by category?
+
+        TO CHANGE (if this changes):
+        StoryDetailsData
+        StoryDetailsViewHolder-->
+
+    </androidx.constraintlayout.widget.ConstraintLayout>
+</com.google.android.material.card.MaterialCardView>

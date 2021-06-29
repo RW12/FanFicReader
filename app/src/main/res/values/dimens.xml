@@ -1,0 +1,7 @@
+<?xml version="1.0" encoding="utf-8"?>
+<resources>
+    <dimen name="story_card_padding">8dp</dimen>
+    <dimen name="story_title_font">16sp</dimen>
+    <dimen name="story_card_elevation">@dimen/story_card_padding</dimen>
+    <dimen name="story_card_corner">12dp</dimen>
+</resources>
