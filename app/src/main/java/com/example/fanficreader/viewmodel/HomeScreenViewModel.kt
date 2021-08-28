@@ -4,7 +4,6 @@ import android.util.Log
 import androidx.lifecycle.MutableLiveData
 import androidx.lifecycle.ViewModel
 import com.example.fanficreader.model.StoryDetailsData
-import com.example.fanficreader.view.recyclerview.StoryDetailsAdapter
 import com.google.firebase.firestore.FirebaseFirestore
 
 private const val STORY_KEY = "fanfic"
@@ -29,6 +28,12 @@ class HomeScreenViewModel(): ViewModel() {
     val liveDataSummary by lazy {
         MutableLiveData<String>()
     }
+    val liveDataStoryContent by lazy {
+        MutableLiveData<String>()
+    }
+    val liveDataChapter by lazy {
+        MutableLiveData<Int>(currentChapter)
+    }
     val db = FirebaseFirestore.getInstance()
     private var currentChapter = 0
     private var currentStory = ""
@@ -46,16 +51,9 @@ class HomeScreenViewModel(): ViewModel() {
                     it.documents.forEach{
                         val titleAndAuthorText = it.getString(TITLE_AND_AUTHOR_KEY).orEmpty()
                         val summaryText = it.getString(SUMMARY_KEY).orEmpty()
-                        var tagsText = ""
-                        it.get(TAGS_KEY).forEach { temp -> String
-                            tagsText += temp + ", "
-                        }
-                        tagsText.substring(0,tagsText.length-2)
-                        var charText = "characters"
-                        it.get(CHAR_KEY).forEach { temp -> String
-                            charText += temp + ", "
-                        }
-                        charText.substring(0,charText.length-2)
+                        //TODO PLAY AROUND WITH FONTS AND SIZES AND STUFF and the below unchecked cast to ArrayList
+                        val tagsText =  (it.data?.get(TAGS_KEY) as ArrayList<String>?)?.toCommaSeparatedString().orEmpty()
+                        val charText = (it.data?.get(CHAR_KEY) as ArrayList<String>?)?.toCommaSeparatedString().orEmpty()
                         val idText = it.id
                         storyList.add(StoryDetailsData(titleAndAuthorText, tagsText, summaryText, charText,idText))
                         //if(storyList.size>0)
@@ -67,6 +65,18 @@ class HomeScreenViewModel(): ViewModel() {
                 }
     }
 
+    fun ArrayList<String>.toCommaSeparatedString(): String {
+        val builder = StringBuilder();
+        this.forEachIndexed { index, s ->
+            builder.append(s)
+                    .apply {
+                        if(index < size-1)
+                            append(", ")
+                    }
+        }
+        return builder.toString()
+    }
+
     fun updateStoryTitleCard(storyDataObject: StoryDetailsData) {
         liveDataTitleAuthor.value = storyDataObject.titleAndAuthor
         liveDataTags.value = storyDataObject.tags
@@ -75,20 +85,36 @@ class HomeScreenViewModel(): ViewModel() {
     }
     fun updateCurrentStory(index: Int) {
         currentStory = storyList.get(index).id
+        println("Kevin: 1 $currentStory")
     }
 
     fun nextChapter() {
         currentChapter++
+        liveDataChapter.value = currentChapter
         getChapterContent()
     }
     fun prevChapter() {
         currentChapter--
+        liveDataChapter.value = currentChapter
+        getChapterContent()
+    }
+    fun updateChapter(chapter: Int) {
+        currentChapter = chapter
+        liveDataChapter.value = currentChapter
         getChapterContent()
     }
     private fun getChapterContent() {
-        db.collection(STORY_KEY).document(currentStory).collection("$CHAPTER $currentChapter").document("offset 1").get()
+        db.collection(STORY_KEY).document(currentStory).collection("$CHAPTER$currentChapter").document("offset01").get()
                 .addOnSuccessListener {
-                    liveDataSummary.value = it.getString(CONTENT_KEY)
+                    println("Kevin: 2 ${it.getString(CONTENT_KEY)}")
+                    liveDataStoryContent.value = it.getString(CONTENT_KEY)
                 }
+    }
+
+    fun getCurrentStory(): String  {
+        return currentStory;
+    }
+    fun getCurrentChapter(): Int  {
+        return currentChapter;
     }
 }

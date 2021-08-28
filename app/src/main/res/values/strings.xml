@@ -2,4 +2,14 @@
     <string name="app_name">FanficReader</string>
     <string name="search_hint">Filter stories by genres, tags, and characters</string>
     <string name="app_label">Temp app label</string>
+    <string-array name="chapters_temp">
+        <item>Chapter 1</item>
+        <item>Chapter 2</item>
+        <item>Chapter 3</item>
+        <item>Chapter 4</item>
+        <item>Chapter 5</item>
+        <item>Chapter 6</item>
+        <item>Chapter 7</item>
+        <item>Chapter 8</item>
+    </string-array>
 </resources>

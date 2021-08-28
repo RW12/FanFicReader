@@ -6,8 +6,6 @@
     android:layout_height="match_parent"
     android:orientation="vertical"
     android:gravity="center_horizontal">
-<!-- change this to FrameLayout to be able to put button on bottom right,
- use alignParentBottom="true" to stack textviews?-->
 
     <TextView
         android:id="@+id/titleAndAuthor"
@@ -39,37 +37,53 @@
         app:layout_constraintEnd_toEndOf="parent"
         tools:layout_editor_absoluteX="105dp"
         tools:layout_editor_absoluteY="41dp" />
+    <Spinner
+        android:id="@+id/chapter_nav_spinner"
+        app:layout_constraintTop_toBottomOf="@+id/characters"
+        app:layout_constraintBottom_toTopOf="@id/summary"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content" />
+    <TextView
+        android:id="@+id/summary"
+        app:layout_constraintTop_toBottomOf="@+id/chapter_nav_spinner"
+        app:layout_constraintBottom_toTopOf="@id/scroller_id"
+        app:layout_constraintStart_toStartOf="parent"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:text="Summary of the story."/>
     <ScrollView
         android:id="@+id/scroller_id"
         android:layout_width="0dp"
         android:layout_height="0dp"
         android:fillViewport="true"
         android:scrollbars="vertical"
-        app:layout_constraintTop_toBottomOf="@+id/characters"
+        app:layout_constraintTop_toBottomOf="@+id/summary"
         app:layout_constraintBottom_toTopOf="@id/titleScreenNextButton"
         app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintEnd_toEndOf="parent"
-        tools:layout_editor_absoluteX="126dp"
-        tools:layout_editor_absoluteY="60dp">
+        app:layout_constraintEnd_toEndOf="parent">
         <TextView
-            android:id="@+id/summary"
+            android:id="@+id/storyContent"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
-            android:text="Summary of the story." />
-        <!--view pager-->
+            android:text="Story Content" />
     </ScrollView>
 
+    <Button
+        android:id="@+id/titleScreenPrevButton"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:text="Prev"
+        app:layout_constraintBottom_toBottomOf="parent"
+        app:layout_constraintLeft_toLeftOf="parent"
+        android:background="@color/white"
+        android:visibility="gone"/>
     <Button
         android:id="@+id/titleScreenNextButton"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        app:layout_constraintTop_toBottomOf="@+id/scroller_id"
         app:layout_constraintBottom_toBottomOf="parent"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintVertical_bias="1"
         android:background="@color/white"
-        android:text="Next"
-        tools:layout_editor_absoluteX="323dp"
-        tools:layout_editor_absoluteY="681dp" /> <!--want to put this button on bottom-->
-    <!--ALTERNATIVE: use frame layout, 2 items: one item with all the text (the text box center aligned), and the button on the bottom-->
+        android:text="Next"/>
 </androidx.constraintlayout.widget.ConstraintLayout>

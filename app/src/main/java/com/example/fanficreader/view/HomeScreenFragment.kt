@@ -45,7 +45,7 @@ class HomeScreenFragment(private val supportFragmentManager: FragmentManager) : 
 
     }
 
-    /*TO INCLUDE: search bar, listed stories (for now, represented with a container that can be filled later; make sure it's 'scrollable'
+    /*TODO: search bar, listed stories (for now, represented with a container that can be filled later; make sure it's 'scrollable'
     onClick listener for searchBarButton: get text from the searchBar editText thing and store into searchBarText
          */
     //editText when 'enter' is clicked from the keyboard, default to it being equivalent to pressing the 'search' button
