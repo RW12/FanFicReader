@@ -2,10 +2,11 @@
 <RelativeLayout xmlns:android="http://schemas.android.com/apk/res/android"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
-    android:gravity="center"
-    android:background="#2196F3">
+    android:background="#2196F3"
+    android:gravity="center">
 
-    <!--<ImageView
+    <!-- TODO: create a logo and add to splash page
+    <ImageView
         android:id="@+id/logo_id"
         android:layout_width="250dp"
         android:layout_height="250dp"
@@ -16,9 +17,9 @@
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:layout_centerHorizontal="true"
-        android:text="FanficReader"
+        android:text="@string/app_name"
         android:textColor="@color/black"
-        android:textSize="60dp"/> <!--text size variable with screen width?-->
-    <!-- android:layout_below="@+id/logo_id"-->
+        android:textSize="60dp" />
+    <!--TODO: text size variable with screen width?-->
 
 </RelativeLayout>

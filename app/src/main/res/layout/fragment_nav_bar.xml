@@ -1,25 +1,10 @@
 <?xml version="1.0" encoding="utf-8"?>
-<!--floating search bar-type thing that appears at top of page [or
-when user drags screen down in specific way/when user taps top of screen?]
-https://guides.codepath.com/android/handling-scrolls-with-coordinatorlayout
 
-clicking on another chapter will destroy the current fragment (or just erase
-the content that's on the screen? will eventually want to get to a point where
-it's a fragment though, to fit in the comment section underneath a story.
-*Unless the comment section can be a link that creates a popup fragment that
-the user can look through, so the comments have more separation from the
-story) and the new chapter being navigated to will appear
-
-WANT a Spinner that disappears after scrolling away but appears if user taps
-on top of screen; there's a RecylcerView attached to that Spinner that shows
-the selection of chapters based on [something inside the database? what?]
-https://developer.android.com/guide/topics/ui/controls/spinner
-get toolbar to scroll away-for now just let it sit there?-->
 <androidx.constraintlayout.widget.ConstraintLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
     xmlns:tools="http://schemas.android.com/tools"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
-    xmlns:app="http://schemas.android.com/apk/res-auto"
     android:fitsSystemWindows="true"
     tools:context=".view.MainActivity">
 
@@ -27,7 +12,7 @@ get toolbar to scroll away-for now just let it sit there?-->
         android:id="@+id/chapter_nav_spinner"
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
-        app:layout_constraintTop_toTopOf="parent"
         app:layout_constraintLeft_toLeftOf="parent"
-        app:layout_constraintRight_toRightOf="parent"/>
+        app:layout_constraintRight_toRightOf="parent"
+        app:layout_constraintTop_toTopOf="parent" />
 </androidx.constraintlayout.widget.ConstraintLayout>
