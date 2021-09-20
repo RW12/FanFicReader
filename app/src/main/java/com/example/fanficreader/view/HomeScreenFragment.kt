@@ -16,12 +16,16 @@ import com.example.fanficreader.model.StoryDetailsData
 import com.example.fanficreader.view.recyclerview.StoryDetailsItemDecorator
 import com.example.fanficreader.viewmodel.HomeScreenViewModel
 
-class HomeScreenFragment(private val supportFragmentManager: FragmentManager) : Fragment(R.layout.fragment_home_screen) {
-    val viewModel: HomeScreenViewModel by activityViewModels()
+class HomeScreenFragment(private val supportFragmentManager: FragmentManager) :
+    Fragment(R.layout.fragment_home_screen) {
+    private val viewModel: HomeScreenViewModel by activityViewModels()
 
-    override fun onCreateView(inflater: LayoutInflater, container: ViewGroup?, savedInstanceState: Bundle?): View? {
+    override fun onCreateView(inflater: LayoutInflater,
+                              container: ViewGroup?,
+                              savedInstanceState: Bundle?): View? {
         return inflater.inflate(R.layout.fragment_home_screen, container, false)
     }
+
     override fun onViewCreated(view: View, savedInstanceState: Bundle?) {
         super.onViewCreated(view, savedInstanceState)
         initRecyclerView(view)
@@ -37,16 +41,14 @@ class HomeScreenFragment(private val supportFragmentManager: FragmentManager) : 
         recyclerView.adapter = adapter
         recyclerView.addItemDecoration(StoryDetailsItemDecorator())
 
-        viewModel.storyListL.observe(viewLifecycleOwner, Observer<MutableList<StoryDetailsData>> {
-            //if(it.size>0)
-            //    Log.d("Kevin","title/author from fragment: " + it.get(0).titleAndAuthor)
-            adapter.submitList(it)
+        viewModel.liveDataStoryList.observe(viewLifecycleOwner, { storyList ->
+            adapter.submitList(storyList)
         })
-
     }
 
-    /*TODO: search bar, listed stories (for now, represented with a container that can be filled later; make sure it's 'scrollable'
+    /*
+    TODO: search bar, listed stories (for now, represented with a container that can be filled later; make sure it's 'scrollable')
     onClick listener for searchBarButton: get text from the searchBar editText thing and store into searchBarText
-         */
-    //editText when 'enter' is clicked from the keyboard, default to it being equivalent to pressing the 'search' button
+    editText when 'enter' is clicked from the keyboard, default to it being equivalent to pressing the 'search' button
+    */
 }

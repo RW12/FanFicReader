@@ -6,8 +6,9 @@ import android.content.Intent
 import android.os.Bundle
 import android.os.Handler
 
+private const val DELAY_TIME = 2000L
 
-class SplashActivity: Activity() {
+class SplashActivity : Activity() {
     var handler: Handler? = null
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
@@ -18,6 +19,6 @@ class SplashActivity: Activity() {
             val intent = Intent(this@SplashActivity, MainActivity::class.java)
             startActivity(intent)
             finish()
-        }, 2000)
+        }, DELAY_TIME)
     }
 }

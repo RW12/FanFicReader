@@ -8,16 +8,17 @@ import com.example.fanficreader.R
 import com.example.fanficreader.model.StoryDetailsData
 import com.example.fanficreader.viewmodel.HomeScreenViewModel
 
-class StoryDetailsAdapter(private val supportFragmentManager: FragmentManager, val viewModel: HomeScreenViewModel) : ListAdapter<StoryDetailsData, StoryDetailsViewHolder>(StoryDetailsDiffCallback()) {
-    //https://medium.com/simform-engineering/listadapter-a-recyclerview-adapter-extension-5359d13bd879
+class StoryDetailsAdapter(private val supportFragmentManager: FragmentManager,
+                          val viewModel: HomeScreenViewModel) :
+    ListAdapter<StoryDetailsData, StoryDetailsViewHolder>(StoryDetailsDiffCallback()) {
     override fun onCreateViewHolder(parent: ViewGroup, viewType: Int): StoryDetailsViewHolder {
         val view = LayoutInflater.from(parent.context)
-                .inflate(R.layout.story_card_layout, parent, false)
+            .inflate(R.layout.story_card_layout, parent, false)
         return StoryDetailsViewHolder(view, supportFragmentManager, viewModel)
     }
 
     override fun onBindViewHolder(holder: StoryDetailsViewHolder, position: Int) {
-        holder.bind(currentList[position],position)
+        holder.bind(currentList[position], position)
     }
 
     override fun getItemCount(): Int {
