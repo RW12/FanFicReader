@@ -81,6 +81,7 @@ class StoryViewerFragment : Fragment() {
         TODO get array of collections from the document (document = story, collection = chapter) as
             well as ability to go to title card (0th chapter)
         TODO [list of chapters in spinner dynamically changes]: have to use onsuccesslistener
+        TODO add chapter number in front of chapter title in the chapter nav spinner
          */
         val chapterNavSpinner: Spinner = view.findViewById(R.id.chapter_nav_spinner)
         val spinnerAdapter = ArrayAdapter<String>(chapterNavSpinner.context,
@@ -89,14 +90,10 @@ class StoryViewerFragment : Fragment() {
         spinnerAdapter.setDropDownViewResource(android.R.layout.simple_spinner_dropdown_item)
         chapterNavSpinner.adapter = spinnerAdapter
         val db = FirebaseFirestore.getInstance()
-        /*val listOfChapters: List<String> = db.collection(STORY_KEY)
-            .document(viewModel.currentStory)
-            .get()
-            .result?.get(CHAPTERS_KEY)
-            as List<String>? ?: emptyList()
-        spinnerAdapter.addAll(listOfChapters)*/
-        val testList = arrayListOf("Chapter 1", "Chapter 2", "Chapter 3")
-        spinnerAdapter.addAll(testList)
+        db.collection(STORY_KEY).document(viewModel.currentStory).get().addOnCompleteListener { task->
+            val listOfChapters: List<String> = task.getResult()?.get(CHAPTERS_KEY) as List<String>
+            spinnerAdapter.addAll(listOfChapters)
+        }
         spinnerAdapter.notifyDataSetChanged()
         //click handler for spinner
         chapterNavSpinner.onItemSelectedListener = object : AdapterView.OnItemSelectedListener {
